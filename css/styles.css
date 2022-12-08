@@ -50,6 +50,7 @@ main {
 .list__city {
     cursor: pointer;
     color: #ccc;
+    font-size: 18px;
 }
 
 .list__city.list__city--selected {
