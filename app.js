@@ -67,3 +67,5 @@ sydneyTag.addEventListener('click', () => {
     setSelectedItem(sydneyTag);
 });
 
+setSliderProperties(cupertinoTag.offsetWidth, cupertinoTag.offsetLeft);
+setSelectedItem(cupertinoTag);
