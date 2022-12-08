@@ -1,0 +1,61 @@
+:root {
+    --slide-width: 0px;
+    --slide-left-offset: 0px;
+}
+
+html,
+body,
+main {
+    height: 100%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.list {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+    position: relative;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.list::before {
+    content: "";
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    height: 1.5px;
+    background-color: #ccc;
+}
+
+.list::after {
+    content: "";
+    width: var(--slide-width);
+    position: absolute;
+    left: var(--slide-left-offset);
+    bottom: -10px;
+    height: 1.5px;
+    background-color: black;
+    transition: all .45s;
+}
+
+.list__city {
+    cursor: pointer;
+    color: #ccc;
+}
+
+.list__city.list__city--selected {
+    color: #000;
+}
+
+.list__city:hover {
+    color: #005CE6;
+}
