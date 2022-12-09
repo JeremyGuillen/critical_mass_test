@@ -1,3 +1,4 @@
+// CONSTANT WITH THE CITIES DATA
 const citiesData = [
     {
       section: "cupertino",

@@ -1,8 +1,13 @@
-let cities = citiesData;
+// variables to store the state of the page
+const cities = citiesData;
 let selectedItem;
+
+// DOM elements
 const cityNavElements = document.getElementById('cities');
 const currentTimeElement = document.getElementById('current-time');
 
+// fetch the current city time using world time api
+// for reference you can check this url: http://worldtimeapi.org/
 const getCityCurrentTime = async (timeZone) => {
     try {
         const response = await fetch(`https://worldtimeapi.org/api/timezone/${timeZone}`);
@@ -17,31 +22,36 @@ const getCityCurrentTime = async (timeZone) => {
     }
 }
 
+// modifies the css vatiavl
 const setSliderProperties = (width, leftOffset) => {
     document.documentElement.style.setProperty('--slide-left-offset', `${leftOffset}px`);
     document.documentElement.style.setProperty('--slide-width', `${width}px`);
 };
 
+// removes the last selected item sttyles
 const removeSelectedItem = () => {
     const elements = document.querySelectorAll('.list__city--selected');
     elements.forEach((element) => element.classList.remove('list__city--selected'));
 };
 
+// sets the selected item and adds the selected style to the dom element
 const setSelectedItem = (item) => {
     selectedItem = item;
     item.classList.add('list__city--selected');
 };
 
+// resizes the slider width and position when the window is resized
 const onWindowResize = () => {
     if (!selectedItem) return;
     setSliderProperties(selectedItem.offsetWidth, selectedItem.offsetLeft);
 };
 
-
+// sets the current timezone in the page
 const setCurerntTimeText = (currentTime) => {
     currentTimeElement.innerText = currentTime;
 }
 
+// creates and adds the nav elements in the dom
 const createNavElements = () => {
     if (!cities.length) return;
     const elements = cities.map((city) => {
@@ -65,18 +75,18 @@ const createNavElements = () => {
     setSliderProperties(firstElement.offsetWidth, firstElement.offsetLeft);
 };
 
+// loads the default option
 const loadDefaultTimezone = async () => {
     if (!cities.length) return;
     const date = await getCityCurrentTime(cities[0].time_zone);
     setCurerntTimeText(date);
 }
 
-
-window.addEventListener('resize', onWindowResize)
-
+// inits the navbar and loads the elements
 const loadNavElements = async () => {
     createNavElements();
     loadDefaultTimezone();
 } 
 
+window.addEventListener('resize', onWindowResize);
 loadNavElements();
