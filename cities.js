@@ -1,0 +1,37 @@
+const citiesData = [
+    {
+      section: "cupertino",
+      label: "Cupertino",
+      time_zone: "America/Los_Angeles"
+    },
+    {
+      section: "new-york-city",
+      label: "New York City",
+      time_zone: "America/New_York"
+    },
+    {
+      section: "london",
+      label: "London",
+      time_zone: "Europe/London"
+    },
+    {
+      section: "amsterdam",
+      label: "Amsterdam",
+      time_zone: "Europe/Amsterdam"
+    },
+    {
+      section: "tokyo",
+      label: "Tokyo",
+      time_zone: "Asia/Tokyo"
+    },
+    {
+      section: "hong-kong",
+      label: "Hong Kong",
+      time_zone: "Asia/Hong_Kong"
+    },
+    {
+      section: "sydney",
+      label: "Sydney",
+      time_zone: "Australia/Sydney"
+    }
+  ]

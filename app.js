@@ -1,4 +1,4 @@
-let cities = [];
+let cities = citiesData;
 let selectedItem;
 const cityNavElements = document.getElementById('cities');
 const currentTimeElement = document.getElementById('current-time');
@@ -37,11 +37,6 @@ const onWindowResize = () => {
     setSliderProperties(selectedItem.offsetWidth, selectedItem.offsetLeft);
 };
 
-const getCitiesData = async () => {
-   const response = await fetch('./navigation.json');
-   const data = await response.json();
-   cities = data.cities;
-};
 
 const setCurerntTimeText = (currentTime) => {
     currentTimeElement.innerText = currentTime;
@@ -80,7 +75,6 @@ const loadDefaultTimezone = async () => {
 window.addEventListener('resize', onWindowResize)
 
 const loadNavElements = async () => {
-    await getCitiesData();
     createNavElements();
     loadDefaultTimezone();
 } 
